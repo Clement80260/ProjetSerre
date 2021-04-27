@@ -6,21 +6,16 @@ using namespace std;
 
 int main()
 {
-	float TempInt = 25;		//Température en °C
-	int Hygro = 35;			//Hygrometrie en %
-	bool Condition;
+	float TempInt = 20, TempExt = 22;		//Température en °C
+	int Hygro = 45;							//Hygrometrie en %
 
 	VerifSeuil *Verif = new VerifSeuil();
 
-	Condition = Verif->Verif_Brumisation(TempInt, Hygro);
-	if (Condition == true)
-	{
-		cout << "Condition rempli Brumisation activée" << endl;
-	}
-	else
-	{
-		cout << "Condition non rempli Brumisation désactivée" << endl;
-	}
+	Verif->Verif_Brumisation(TempInt, Hygro);
+	Verif->Verif_Chauffage(TempInt);
+	Verif->Verif_Vasistas(TempInt, TempExt, Hygro);
 
 	system("PAUSE");
+
 }
+
